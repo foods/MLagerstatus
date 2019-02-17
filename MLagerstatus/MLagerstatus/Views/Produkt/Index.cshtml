@@ -1,0 +1,29 @@
+﻿@model MLagerstatus.Models.Views.ProduktIndexView
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produkter</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Artikel</th>
+            <th>Lagerstatus</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Produkter) {
+        <tr>
+            <td>
+                @Html.ActionLink(item.ProduktNamn, "Details", new { produkt = item.ProduktNamn })
+            </td>
+            <td>
+                @item.LagerStatus
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
